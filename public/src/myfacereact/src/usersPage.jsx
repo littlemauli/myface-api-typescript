@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
+import './css/app.scss';
+import './css/appBigScreen.scss'
+import {GetUsers} from "./userList.jsx"
 
-import {GetPosts} from "./postList.jsx"
 
 
-
-export function MyPostComponent() {
+export function MyUserComponent() {
     const [myData, setMyData] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:3001/posts")
+        fetch("http://localhost:3001/users")
         .then(response => response.json())
         .then(data => setMyData(data));
     }, []);
@@ -19,7 +20,7 @@ export function MyPostComponent() {
     return (
         <div>
             {
-                myData.results.map(post => <GetPosts post={post} />)
+                myData.results.map(users => <GetUsers users={users} />)
                 
             }
         </div>

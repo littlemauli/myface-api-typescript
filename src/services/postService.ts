@@ -26,6 +26,11 @@ export async function getPageOfPosts(page: number, pageSize: number): Promise<Pa
     }
 }
 
+export async function getPost(postId: number): Promise<PostModel> {
+    const post = await postRepo.getPost(postId);
+    return toPostModel(post);
+}
+
 export async function createPost(newPost: CreatePostRequest): Promise<void> {
     await postRepo.createPost(newPost);
 }

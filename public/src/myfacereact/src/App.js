@@ -2,39 +2,34 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import { MyPostComponent } from "./PagesAll/postsPage.jsx.js"
-import {MyUserComponent} from "./PagesAll/usersPage.jsx"
+import { MyPostComponent } from "./postsPage.jsx"
+import { MyUserComponent } from "./usersPage.jsx"
+import { MyHeaderComponent } from "./header.jsx"
+import { GetUserDetails } from './userDetails.jsx';
+import {MyCreateUserComponent} from './create_user.jsx'
+
+import './css/app.scss';
 
 function App() {
   return (
     <Router>
-      <h1>This is on everypage</h1>
+      < MyHeaderComponent />
       <Switch>
         <Route path="/posts">
           <MyPostComponent />
         </Route>
-        <Route path ="/users">
-          <MyUserComponent/>
+        <Route path="/users">
+          <MyUserComponent />
+        </Route>
+        <Route path='/identity/:id'>
+          <GetUserDetails />
+        </Route>
+        <Route path='/user/create'>
+          <MyCreateUserComponent />
         </Route>
       </Switch>
     </Router>
 
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 

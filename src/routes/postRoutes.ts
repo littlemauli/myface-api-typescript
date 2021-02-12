@@ -1,6 +1,6 @@
 import express from "express";
 import {CreatePostRequest} from "../models/api/createPostRequest";
-import {createPost, dislikePost, getPageOfPosts, likePost} from "../services/postService";
+import {createPost, dislikePost, getPageOfPosts, getPost, likePost} from "../services/postService";
 import { body, validationResult } from "express-validator";
 
 const router = express.Router()
@@ -27,6 +27,13 @@ router.post('/create/',
 
     await createPost(post as CreatePostRequest);
     return response.status(200);
+});
+
+router.get('/:postId/', async (request, response) => {
+    const postId = parseInt(request.params.postId);
+
+    const post = await getPost(postId);
+    return response.status(200).json(post);
 });
 
 router.post('/:postId/like/', async (request, response) => {
