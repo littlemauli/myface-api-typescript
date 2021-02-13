@@ -7,6 +7,7 @@ import { MyUserComponent } from "./usersPage.jsx"
 import { MyHeaderComponent } from "./header.jsx"
 import { GetUserDetails } from './userDetails.jsx';
 import {MyCreateUserComponent} from './create_user.jsx'
+import {MyCreatePostComponent} from './create_post.jsx'
 
 import './css/app.scss';
 
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path='/user/create'>
           <MyCreateUserComponent />
+        </Route>
+        <Route path='/post/create'>
+          <MyCreatePostComponent />
         </Route>
       </Switch>
     </Router>

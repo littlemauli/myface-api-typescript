@@ -26,7 +26,7 @@ router.post('/create/',
     const post = request.body;
 
     await createPost(post as CreatePostRequest);
-    return response.status(200);
+    return response.status(200).json({status: 200});
 });
 
 router.get('/:postId/', async (request, response) => {
